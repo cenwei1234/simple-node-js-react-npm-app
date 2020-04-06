@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install -g appium --unsafe-perm=true --allow-root'
+                sh 'npm install --registry=https://registry.npm.taobao.org  --unsafe-perm'
             }
         }
         stage('Test') {
