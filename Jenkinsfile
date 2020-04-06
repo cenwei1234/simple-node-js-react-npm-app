@@ -2,7 +2,8 @@ pipeline {
     agent {
         docker {
             image 'node:6-alpine'
-            args '-p 3100:3100'
+            args '-p 3100:3100 -p 5000:5000'
+            args '-u 0:0'
         }
     }
     environment { 
@@ -11,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install --registry=https://registry.npm.taobao.org  --unsafe-perm'
+                sh 'npm install'
             }
         }
         stage('Test') {
